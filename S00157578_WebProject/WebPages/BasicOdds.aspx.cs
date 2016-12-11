@@ -54,7 +54,7 @@ namespace S00157578_WebProject.WebPages
             double time = 5.00;
             int players = 0;
             bool trying= int.TryParse(txtbxPlayers.Text, out players);
-            //converting string and int valus
+            //converting string and values
             ulong pocket = Hand.ParseHand(myCards);
             ulong board = Hand.ParseHand(boardCards);
             ulong dead = Hand.ParseHand("");
@@ -86,7 +86,8 @@ namespace S00157578_WebProject.WebPages
                 bool win = true;
                 bool draw = true;
             // Keep track of stats, using doubles instead of ints for the counter so i dont need to convert to double in order to have decimal places in the percentage
-            double winCount = 0.0, count = 0.0;
+            double winCount = 0;
+            double count = 0;
 
             // Keep track of time
             double start = Hand.CurrentTime;
@@ -116,7 +117,7 @@ namespace S00157578_WebProject.WebPages
                 //loop for the amount of players so each player against you is assigned a hand
                 for (int i = 0; i < playerCount; i++)
                 {
-                    // Get Opponent hand info and calculate the value of the opponents hand
+                    // generates random Opponent hand from any cards that are not in the deadcards ulong  info and calculate the value of the opponents hand
                     ulong oppmask = Hand.RandomHand(deadCards, 2);
                     uint oppHandVal = Hand.Evaluate(oppmask | boardCards);
 
@@ -150,6 +151,7 @@ namespace S00157578_WebProject.WebPages
             }
 
             // Return the win amount as a decimal which is then *100 to give the percentage wins
+            //using the conditional operator to prevent an error been thrown if there is an attempt to divide 0 by 0
             return (count == 0.0 ? 0.0 : winCount / count);
         }
         //calculates your 'pot odds' as a percentage
