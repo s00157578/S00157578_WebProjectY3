@@ -1,0 +1,46 @@
+﻿body {
+    padding-top: 120px;
+}
+#helpHeading
+{
+    padding-bottom: 120px;
+}
+#potGlyphicon{
+    padding-left: 20px;
+}
+#handGlyphicon{
+    padding-left: 20px;
+}
+.helpPadding{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+display: block;
+height: 300px !important;
+max-width: 100%;
+line-height: 1;
+width: 100%;
+}
+#twitterHeader {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+.media-object.mySize{
+    height: 100px;
+    width: auto;
+}
+.media-object.tutorialSize{
+    height: 150px;
+    width: auto;
+}
+
+#pncw,#pncw .skin390x320{width:390px}
+#pncw *,#pncw{border:20px none}
+#pncw{position:relative;background:#fff}
+#pncw .skin390x320{height:50px;position:absolute;top:5px;left:5px}
+#pncw .skin390x320 a{font:15px/140% arial; color:#034EA2;letter-spacing:-1px;text-decoration:none;
+                    display:block;margin-top:3px}
+#pncw .skin390x320 img{border:none; margin-right:5px;float:left}#pncw .text
+                       {width:270px;height:15px;position:absolute;top:290px;left:15px;font:11px verdana}
+#pncw .text a{font:11px verdana;color:#034EA2;text-decoration:underline}
