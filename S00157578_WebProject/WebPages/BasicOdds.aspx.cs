@@ -50,22 +50,20 @@ namespace S00157578_WebProject.WebPages
             //reading in values from text boxes
             string myCards = txtbxPocket.Text;
             string boardCards = txtbxBoard.Text;
-            //time to run progam for
-            double time = 5.00;
             int players = 0;
             bool trying= int.TryParse(txtbxPlayers.Text, out players);
             //converting string and values
             ulong pocket = Hand.ParseHand(myCards);
             ulong board = Hand.ParseHand(boardCards);
-            ulong dead = Hand.ParseHand("");
-            //simple loop to stop false data crashing the website
-            if (players > 0 && players <= 9 && Hand.BitCount(pocket) == 2 && Hand.BitCount(board) >= 0
+            
+            //simple loop to stop false data crashing the website, //set a player limit of 10 because more players the less iterations of the while loop can be done
+            if (players > 0 && players <= 10 && Hand.BitCount(pocket) == 2 && Hand.BitCount(board) >= 0
                 && Hand.BitCount(board) <= 5)
             {
                 try
                 {
                     //sets a to the return of the win odds method which calulates win percentage.
-                    double a = (WinOdds(pocket, board, dead, players, time) * 100.0);
+                    double a = (WinOdds(pocket, board, players));
                     a = Math.Round(a, 2);
                     string percent = a.ToString();
                     txtHandOdds.InnerText = (percent + "%");
@@ -80,10 +78,13 @@ namespace S00157578_WebProject.WebPages
         }
         /*runs a simulation for the amount of time set. i chose to use a set time rather than a number of loops, because I didnt
         want the program to take forever to run on a slow computer*/
-        static double WinOdds(ulong pocket, ulong board, ulong dead, int playerCount, double runTime)
+        static double WinOdds(ulong pocket, ulong board, int playerCount)
         {
+            ulong dead = Hand.ParseHand("");
+            //time to run progam for
+            double runTime = 5.00;
             // bools for use in for loop to determine who won, no need to use a counter because it is comparing the one hand against each player individually
-                bool win = true;
+            bool win = true;
                 bool draw = true;
             // Keep track of stats, using doubles instead of ints for the counter so i dont need to convert to double in order to have decimal places in the percentage
             double winCount = 0;
@@ -152,7 +153,7 @@ namespace S00157578_WebProject.WebPages
 
             // Return the win amount as a decimal which is then *100 to give the percentage wins
             //using the conditional operator to prevent an error been thrown if there is an attempt to divide 0 by 0
-            return (count == 0.0 ? 0.0 : winCount / count);
+            return (count == 0.0 ? 0.0 : (winCount / count)*100);
         }
         //calculates your 'pot odds' as a percentage
         protected void CalculatePotOdds()

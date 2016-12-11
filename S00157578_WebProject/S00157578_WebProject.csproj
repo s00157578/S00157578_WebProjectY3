@@ -418,7 +418,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\poker calculators\Hand_Evaluator\Hand Evaluator\HandEvaluator\HandEvaluator.csproj">
+    <ProjectReference Include="..\HandEvaluator\HandEvaluator.csproj">
       <Project>{57836673-fe81-4367-a4eb-aaa46fb954d2}</Project>
       <Name>HandEvaluator</Name>
     </ProjectReference>

@@ -12,7 +12,7 @@
                 <br />
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">players In hand</span>
-                    <asp:TextBox ID="txtbxPlayers" runat="server" class="form-control" placeholder="1-9" />
+                    <asp:TextBox ID="txtbxPlayers" runat="server" class="form-control" placeholder="1-10" />
                 </div>
                 <br />
                 <div class="input-group input-group-lg">
