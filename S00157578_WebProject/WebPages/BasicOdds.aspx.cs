@@ -160,6 +160,7 @@ namespace S00157578_WebProject.WebPages
             double callAmount = double.Parse(txtboxCall.Text);
             //expresses value as a percentage
             double toPercent = (callAmount / pot)*100;
+            toPercent = Math.Round(toPercent, 2);
             string percent = toPercent.ToString();
             txtPotOdds.InnerText = percent + "%";
             Session[sessionPotOdds] = percent;
